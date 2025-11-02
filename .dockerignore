@@ -1,0 +1,7 @@
+.venv/
+data/
+models/
+old/
+__pycache__
+*.faiss
+.env

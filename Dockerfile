@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir uv
 COPY . .
 
 RUN if [ -f pyproject.toml ]; then \
-        uv sync --locker; \
+        uv sync --locked; \
     elif [ -f requirements.txt ]; then \
         uv pip install -r requirements.txt; \
     else \
