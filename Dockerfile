@@ -16,5 +16,5 @@ RUN if [ -f pyproject.toml ]; then \
 
 EXPOSE 8000
 
-CMD ["uvicorn" , "main:app"]
+CMD ["uvicorn" , "backend:app"]
 
