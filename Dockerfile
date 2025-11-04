@@ -6,13 +6,8 @@ RUN pip install --no-cache-dir uv
 
 COPY . .
 
-RUN if [ -f pyproject.toml ]; then \
-        uv sync --locked; \
-    elif [ -f requirements.txt ]; then \
-        uv pip install -r requirements.txt; \
-    else \
-        echo "No dependency file found"; \
-    fi
+RUN uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+RUN uv pip install -r requirements.txt
 
 EXPOSE 8000
 

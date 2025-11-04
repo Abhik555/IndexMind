@@ -95,7 +95,7 @@ def load_documents(folder: Path) -> List[Document]:
             
     return docs
 
-def chunk_documents(documents: List[Document], chunk_size: int = 1000, chunk_overlap: int = 200) -> List[Document]:
+def chunk_documents(documents: List[Document], chunk_size: int = 500, chunk_overlap: int = 200) -> List[Document]:
     splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
     docs_out = splitter.split_documents(documents)
     return docs_out
@@ -118,7 +118,7 @@ def load_vector_store(persist_path: Path, embed_model: HuggingFaceEmbeddings) ->
 def load_local_llm(model_name: str = LLM_MODEL_NAME) -> HuggingFacePipeline:
     global global_tokenizer 
     
-    DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+    DEVICE = "cuda" #if torch.cuda.is_available() else "cpu"
     
     MODEL_CACHE = SCRIPT_DIR / "models"
     LLM_ROOT_CACHE = MODEL_CACHE / "llm_models"
