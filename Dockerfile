@@ -6,8 +6,8 @@ RUN pip install --no-cache-dir uv
 
 COPY . .
 
-RUN uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
-RUN uv pip install -r requirements.txt
+RUN uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126 --system
+RUN uv pip install -r requirements.txt --system
 
 EXPOSE 8000
 
