@@ -28,6 +28,7 @@ COPY . .
 
 RUN uv pip install --break-system-packages torch torchvision --index-url https://download.pytorch.org/whl/cu126 --system
 RUN uv pip install --break-system-packages -r requirements.txt --system
+RUN uv pip install --break-system-packages faiss-gpu-cu12
 
 EXPOSE 8000
 
